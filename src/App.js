@@ -17,6 +17,12 @@ import toStar from "./assets/icon/step_to_the_sun.svg";
 import accessAccount from "./assets/icon/Access_account.svg";
 import secureLogin from "./assets/icon/secure_login.svg";
 import secureSheild from "./assets/icon/Security_on.svg";
+import img1 from "./assets/img/1.png";
+import img2 from "./assets/img/2.png";
+import img3 from "./assets/img/3.png";
+import img4 from "./assets/img/4.png";
+import img5 from "./assets/img/5.png";
+
 function App() {
 	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState("");
@@ -24,6 +30,37 @@ function App() {
 	const [name, setName] = useState("");
 	const [address, setAddress] = useState("");
 	const [password, setPassword] = useState("");
+	const [myBooks, setMyBooks] = useState([
+		{ id: 1, name: "Educated", author: "Tara Westover", photo: img1 },
+		{
+			id: 2,
+			name: "The Neighbourhood",
+			author: "Mario vargas Llosa",
+			photo: img2,
+			progress: 60,
+		},
+		{
+			id: 3,
+			name: "The Afterlives",
+			author: "Thomas pierce",
+			photo: img3,
+			progress: 50,
+		},
+		{
+			id: 4,
+			name: "The Blue Flower",
+			author: "Raymond Queneau",
+			photo: img4,
+			progress: 50,
+		},
+		{
+			id: 5,
+			name: "Heart spring mountain",
+			author: "Robin Mac Aurthur",
+			photo: img5,
+			progress: 50,
+		},
+	]);
 	return (
 		<div className="App">
 			<BrowserRouter>
@@ -75,7 +112,11 @@ function App() {
 					component={() => <Fingerprint img={secureSheild} />}
 				/>
 				<Route exact={true} path="/success" component={SuccessPage} />
-				<Route exact={true} path="/lib" component={() => <LibraryPage name={name} />} />
+				<Route
+					exact={true}
+					path="/lib"
+					component={() => <LibraryPage name={name} bookData={myBooks} />}
+				/>
 			</BrowserRouter>
 		</div>
 	);

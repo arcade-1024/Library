@@ -1,12 +1,17 @@
-import React,{useState} from "react";
+import React from "react";
+
+//components
 import Navbar from "../../components/navabar/Navbar";
-const LibraryPage = ({ name }) => {
-	const [myBooks,setMyBooks] = useState([
-		{id:1,name:"",photo:""}
-	])
+import MyBook from "../../components/myBook/MyBook";
+
+
+
+const LibraryPage = ({ name,bookData }) => {
+	
 	return (
 		<div>
 			<Navbar name={name} />
+			<MyBook bookData={bookData}/>
 		</div>
 	);
 };
