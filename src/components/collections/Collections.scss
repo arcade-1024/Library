@@ -1,4 +1,4 @@
-.mybook {
+.collections {
 	padding: 30px 5%;
 	&-header {
 		display: flex;
@@ -29,11 +29,10 @@
 			}
 		}
 	}
-
-	&-collection {
+	&-options {
 		display: flex;
 		flex-direction: row;
-		padding: 20px 0;
+		padding: 20px 0px;
 		overflow-x: scroll;
 		overflow-y: hidden;
 		&::-webkit-scrollbar {
@@ -41,18 +40,13 @@
 		}
 	}
 }
-
 @media (min-width: 1024px) {
-	.mybook {
+	.collections {
 		padding: 30px 5%;
 		&-header {
 			&-title {
 				font-size: 2rem;
 			}
-		}
-		&-btn {
-			padding: 5px 20px;
-			font-size: 1.2rem;
 		}
 	}
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./Navbar.scss";
 
 //img 
@@ -8,18 +9,28 @@ const Navbar = () => {
 	return (
 		<div className="navbar">
 			<div className="navbar-logo">
-        <img src={BookLogo} className="navbar-logo-img" alt=""/>
-      </div>
+				<img src={BookLogo} className="navbar-logo-img" alt="" />
+			</div>
 			<ul className="navbar-link">
-				<li className="navbar-link-items">Home</li>
-				<li className="navbar-link-items">Discover</li>
-				<li className="navbar-link-items">My Collections</li>
+				<li className="navbar-link-items">
+					<Link className="navbar-link-items-tag" to="/lib">
+						Home
+					</Link>
+				</li>
+				<li className="navbar-link-items">
+					<Link className="navbar-link-items-tag" to="/discover">
+						Discover
+					</Link>
+				</li>
+				<li className="navbar-link-items">
+					<Link className="navbar-link-items-tag">My Collections</Link>
+				</li>
 			</ul>
-      <div className="navbar-profile">
-        <div className="navbar-profile-img">
-					<img src={maleAvatar} className="navbar-profile-img-male" alt=""/>
+			<div className="navbar-profile">
+				<div className="navbar-profile-img">
+					<img src={maleAvatar} className="navbar-profile-img-male" alt="" />
 				</div>
-      </div>
+			</div>
 		</div>
 	);
 };

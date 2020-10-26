@@ -19,7 +19,7 @@ const Buffer = ({ img }) => {
 			</div>
 			<p className="Buffer-tagline">Read all your heart desire</p>
 			<img className="Buffer-img" src={img} alt="" />
-			<div class="lds-ellipsis">
+			<div class="loader-circle">
 				<div></div>
 				<div></div>
 				<div></div>

@@ -9,7 +9,9 @@ const MyBook = ({ bookData }) => {
 		<div className="mybook">
 			<div className="mybook-header">
 				<h2 className="mybook-header-title">My Books</h2>
-				<button className="mybook-header-btn">More+</button>
+				<button className="mybook-header-btn">
+					<p>More +</p>
+				</button>
 			</div>
 			<div className="mybook-collection">
 				{bookData.map((book) => (
@@ -17,7 +19,7 @@ const MyBook = ({ bookData }) => {
 						name={book.name}
 						author={book.author}
 						cover={book.photo}
-            completed={book.progress}
+						completed={book.progress}
 						key={book.id}
 					/>
 				))}
