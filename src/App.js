@@ -12,6 +12,7 @@ import Fingerprint from "./Pages/fingerprint/Fingerprint";
 import SuccessPage from "./Pages/successPage/SuccessPage";
 import LibraryPage from "./Pages/libraryPage/LibraryPage";
 import Discover from "./Pages/discover/Discover";
+import MyCollections from "./Pages/myCollections/MyCollections";
 import Admin from "./Pages/admin/Admin";
 
 //images
@@ -28,14 +29,20 @@ import popImg1 from "./assets/img/pop1.png";
 import popImg2 from "./assets/img/pop2.png";
 import popImg3 from "./assets/img/pop3.png";
 import popImg4 from "./assets/img/pop4.png";
+import Collections from "./components/collections/Collections";
+// import Popular from "./components/popular/Popular";
 
 function App() {
 	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState("");
 	const [code, setCode] = useState("");
 	const [name, setName] = useState("");
+
+	// eslint-disable-next-line no-unused-vars
 	const [address, setAddress] = useState("");
+	// eslint-disable-next-line no-unused-vars
 	const [password, setPassword] = useState("");
+	// eslint-disable-next-line no-unused-vars
 	const [myBooks, setMyBooks] = useState([
 		{
 			id: 1,
@@ -71,6 +78,38 @@ function App() {
 			author: "Robin Mac Aurthur",
 			photo: img5,
 			progress: 100,
+		},
+	]);
+	const [allBooks, setAllBooks] = useState([
+		{
+			id: 1,
+			name: "Educated",
+			author: "Tara Westover",
+			photo: img1,
+		},
+		{
+			id: 2,
+			name: "The Neighbourhood",
+			author: "Mario vargas Llosa",
+			photo: img2,
+		},
+		{
+			id: 3,
+			name: "The Afterlives",
+			author: "Thomas pierce",
+			photo: img3,
+		},
+		{
+			id: 4,
+			name: "The Blue Flower",
+			author: "Raymond Queneau",
+			photo: img4,
+		},
+		{
+			id: 5,
+			name: "Heart spring mountain",
+			author: "Robin Mac Aurthur",
+			photo: img5,
 		},
 	]);
 	const [collections, setCollections] = useState([
@@ -113,6 +152,7 @@ function App() {
 			img: popImg4,
 		},
 	]);
+
 	const [discoverCards, setDiscoverCard] = useState([
 		{ id: 1, name: "New releases", bgColor1: "#00F260", bgColor2: "#0575E6" },
 		{ id: 2, name: "Discover", bgColor1: "#FBAB7E", bgColor2: "#F7CE68" },
@@ -125,6 +165,31 @@ function App() {
 		{ id: 9, name: "Anime", bgColor1: "#396afc", bgColor2: "#FFAF7B" },
 		{ id: 10, name: "Studies", bgColor1: "#EF3B36", bgColor2: "#fff" },
 	]);
+	const [analytics, setAnalytics] = useState({
+		labels: [
+			"January",
+			"February",
+			"March",
+			"April",
+			"May",
+			"June",
+			"July",
+			"August",
+			"September",
+			"October",
+		],
+		datasets: [
+			{
+				label: "Rainfall",
+				fill: false,
+				lineTension: 0.5,
+				backgroundColor: "rgba(75,192,192,1)",
+				borderColor: "rgba(0,0,0,1)",
+				borderWidth: 2,
+				data: [65, 59, 80, 81, 56, 66, 21, 55, 33, 77],
+			},
+		],
+	});
 	return (
 		<div className="App">
 			<BrowserRouter>
@@ -193,7 +258,28 @@ function App() {
 					path="/discover"
 					component={() => <Discover cards={discoverCards} />}
 				/>
-				<Route exact={true} path="/admin" component={() => <Admin />} />
+				<Route
+					exact={true}
+					path="/collection"
+					component={() => <MyCollections />}
+				/>
+				<Route
+					exact={true}
+					path="/admin"
+					component={() => (
+						<Admin
+							analytics={analytics}
+							allBooks={allBooks}
+							setAllBooks={setAllBooks}
+							Discover={discoverCards}
+							setDiscover={setDiscoverCard}
+							collections={collections}
+							setCollections={setCollections}
+							popularBooks={popular}
+							setPopular={setPopular}
+						/>
+					)}
+				/>
 			</BrowserRouter>
 		</div>
 	);
